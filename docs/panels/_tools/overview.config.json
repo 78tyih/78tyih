@@ -1,0 +1,859 @@
+{
+ "meta": {
+  "title": "Repo Showcase OS · 八步流水线",
+  "lang": "zh-CN"
+ },
+ "canvas": {
+  "width": 1080,
+  "height": 1080,
+  "duration": 22,
+  "fps": 25,
+  "preroll": 0
+ },
+ "theme": {
+  "preset": "light-pastel",
+  "colors": {}
+ },
+ "clock": {
+  "start": "09:30:00",
+  "rate": 1
+ },
+ "credit": {
+  "text": "事实源：各仓库 showcase/project.json · 动效引擎 live-panel (ythx-101/live-panel-skill) · 计数为示意",
+  "y": 1054,
+  "size": 13
+ },
+ "machines": {
+  "u0": {
+   "type": "lane",
+   "period": 11,
+   "run": 7,
+   "off": 4,
+   "busy": "生成展示包中",
+   "done": [
+    "已上线"
+   ],
+   "phase": 0,
+   "log": {
+    "who": "流水线",
+    "c": "bl",
+    "msgs": [
+     [
+      "事实包写完才动笔写文案",
+      "顺序"
+     ],
+     [
+      "展示页单文件自包含",
+      "零依赖"
+     ],
+     [
+      "独立目录推送，不碰共享 .git",
+      "纪律"
+     ]
+    ]
+   }
+  },
+  "u1": {
+   "type": "lane",
+   "period": 13,
+   "run": 8,
+   "off": 5,
+   "busy": "curl 验收中",
+   "done": [
+    "200 OK"
+   ],
+   "phase": 1,
+   "log": {
+    "who": "验收",
+    "c": "gn",
+    "msgs": [
+     [
+      "Pages 上线后必须 curl 验非 404",
+      "纪律"
+     ],
+     [
+      "截图前先确认不是自建 404 页",
+      "踩过"
+     ],
+     [
+      "证据分 Observed / Inferred / Unknown",
+      "分级"
+     ]
+    ]
+   }
+  }
+ },
+ "elements": [
+  {
+   "type": "text",
+   "x": 48,
+   "y": 62,
+   "w": 984,
+   "align": "left",
+   "t": "Repo Showcase OS · 八步流水线",
+   "size": 30,
+   "b": 1,
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "x": 48,
+   "y": 100,
+   "w": 984,
+   "align": "left",
+   "t": "每个仓库走同一套流水线：事实先于文案，展示页中英 × 日夜，最后落到 Pages 与记忆",
+   "size": 16,
+   "c": "dim"
+  },
+  {
+   "type": "rule",
+   "x": 48,
+   "y": 126,
+   "w": 984
+  },
+  {
+   "type": "box",
+   "x": 48.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 190,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "01",
+     "c": "bl",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "事实盘点",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "读仓库真实代码/文档",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "不靠猜",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 300.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 190,
+   "color": "gn",
+   "fill": "gnf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "02",
+     "c": "gn",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "事实包",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "project.json 单一事实源",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "evidence.md 证据分级",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 552.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 190,
+   "color": "yl",
+   "fill": "ylf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "03",
+     "c": "yl",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "四问 README",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "解决什么 / 什么场景结果",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "什么结构 / 能复用什么",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 804.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 190,
+   "color": "pu",
+   "fill": "puf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "04",
+     "c": "pu",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "展示页",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "单文件 ZH/EN × 日夜",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "?lang=&theme= 深链",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 804.0,
+   "y": 380,
+   "w": 228.0,
+   "h": 190,
+   "color": "tl",
+   "fill": "tlf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "05",
+     "c": "tl",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "独立目录推送",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "/tmp 浅克隆",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "不碰共享工作区 .git",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 552.0,
+   "y": 380,
+   "w": 228.0,
+   "h": 190,
+   "color": "or",
+   "fill": "orf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "06",
+     "c": "or",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "GitHub Pages",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "main /docs",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "curl 验收非 404",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 300.0,
+   "y": 380,
+   "w": 228.0,
+   "h": 190,
+   "color": "mc",
+   "fill": "mcf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "07",
+     "c": "mc",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "About 设置",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "一句话 + homepage",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 48.0,
+   "y": 380,
+   "w": 228.0,
+   "h": 190,
+   "color": "rd",
+   "fill": "rdf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "08",
+     "c": "rd",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "记忆沉淀",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "坑表进 SKILL.md",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     276.0,
+     251.0
+    ],
+    [
+     286.0,
+     251.0
+    ],
+    [
+     300.0,
+     251.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.3,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     528.0,
+     251.0
+    ],
+    [
+     538.0,
+     251.0
+    ],
+    [
+     552.0,
+     251.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.47,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     780.0,
+     251.0
+    ],
+    [
+     790.0,
+     251.0
+    ],
+    [
+     804.0,
+     251.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.6400000000000001,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     918.0,
+     346
+    ],
+    [
+     918.0,
+     368
+    ],
+    [
+     918.0,
+     380
+    ],
+    [
+     918.0,
+     386
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.3,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     804.0,
+     475.0
+    ],
+    [
+     794.0,
+     475.0
+    ],
+    [
+     780.0,
+     475.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.47,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     552.0,
+     475.0
+    ],
+    [
+     542.0,
+     475.0
+    ],
+    [
+     528.0,
+     475.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.6400000000000001,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     300.0,
+     475.0
+    ],
+    [
+     290.0,
+     475.0
+    ],
+    [
+     276.0,
+     475.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.3,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "box",
+   "x": 48,
+   "y": 598,
+   "w": 984,
+   "h": 148,
+   "color": "gy",
+   "fill": "gyf",
+   "pad": [
+    14,
+    18,
+    18
+   ],
+   "align": "left",
+   "lines": [
+    {
+     "t": "实测 · 纪律（静态事实，非动效生成）",
+     "c": "dim",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "runs": [
+      {
+       "t": "组件与设计系统",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  sarah-motion · deepseek-color · dsh-deepseek-color · sera-subtitle-factory",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "技能与工具",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  mojo-plate-design · trae-skills · CC-statusline-kit · niuniu-ai-official",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "证据分级",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  Observed 已实见 / Inferred 待复验 / Unknown 未验证",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "已踩坑",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  README 的 <video> 被剥离（上限 GIF）· jsDelivr 对 .html 返回纯文本",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "log",
+   "x": 48,
+   "y": 768,
+   "w": 984,
+   "rows": 4,
+   "padTop": 16,
+   "padBottom": 26,
+   "padLeft": 18,
+   "title": "run log",
+   "titleX": 30,
+   "titleW": 150,
+   "cols": [
+    {
+     "key": "time",
+     "x": 0
+    },
+    {
+     "key": "who",
+     "x": 110
+    },
+    {
+     "key": "m",
+     "x": 240
+    },
+    {
+     "key": "g",
+     "x": 700
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 48,
+   "y": 940,
+   "w": 984,
+   "h": 54,
+   "color": "gy",
+   "fill": "wh",
+   "pad": [
+    0,
+    18,
+    18
+   ],
+   "align": "left",
+   "lines": [
+    {
+     "items": [
+      {
+       "w": 130,
+       "align": "left",
+       "runs": [
+        {
+         "t": "流水线",
+         "c": "dim",
+         "size": 15
+        }
+       ]
+      },
+      {
+       "w": 210,
+       "align": "left",
+       "runs": [
+        {
+         "v": "u0",
+         "c": "bl",
+         "b": 1,
+         "size": 15
+        }
+       ]
+      },
+      {
+       "w": 130,
+       "align": "left",
+       "runs": [
+        {
+         "t": "验收",
+         "c": "dim",
+         "size": 15
+        }
+       ]
+      },
+      {
+       "w": 210,
+       "align": "left",
+       "runs": [
+        {
+         "v": "u1",
+         "c": "gn",
+         "b": 1,
+         "size": 15
+        }
+       ]
+      },
+      {
+       "grow": 1
+      },
+      {
+       "w": 250,
+       "align": "right",
+       "runs": [
+        {
+         "t": "packets ",
+         "c": "dim",
+         "size": 15
+        },
+        {
+         "v": "packets",
+         "c": "pk",
+         "b": 1,
+         "size": 15
+        },
+        {
+         "t": " (示意)",
+         "c": "dim",
+         "size": 13
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

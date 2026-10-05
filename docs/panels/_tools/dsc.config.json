@@ -1,0 +1,538 @@
+{
+ "meta": {
+  "title": "deepseek-color · Agent 设计技能",
+  "lang": "zh-CN"
+ },
+ "canvas": {
+  "width": 1080,
+  "height": 1080,
+  "duration": 20,
+  "fps": 25,
+  "preroll": 0
+ },
+ "theme": {
+  "preset": "light-pastel",
+  "colors": {}
+ },
+ "clock": {
+  "start": "09:30:00",
+  "rate": 1
+ },
+ "credit": {
+  "text": "事实源：各仓库 showcase/project.json · 动效引擎 live-panel (ythx-101/live-panel-skill) · 计数为示意",
+  "y": 1054,
+  "size": 13
+ },
+ "machines": {
+  "u0": {
+   "type": "lane",
+   "period": 12,
+   "run": 7,
+   "off": 5,
+   "busy": "换肤试穿中",
+   "done": [
+    "已定色"
+   ],
+   "phase": 0,
+   "log": {
+    "who": "试穿",
+    "c": "pu",
+    "msgs": [
+     [
+      "accent 永远 <5%，克制是纪律不是风格",
+      "规则"
+     ],
+     [
+      "色彩三档：base / muted / accent",
+      "结构"
+     ]
+    ]
+   }
+  },
+  "u1": {
+   "type": "lane",
+   "period": 15,
+   "run": 8,
+   "off": 7,
+   "busy": "套版式中",
+   "done": [
+    "已生成"
+   ],
+   "phase": 1,
+   "log": {
+    "who": "骨架",
+    "c": "bl",
+    "msgs": [
+     [
+      "零依赖：不引 CDN、不引框架",
+      "约束"
+     ],
+     [
+      "12 个骨架都能直接双击打开",
+      "验收"
+     ]
+    ]
+   }
+  }
+ },
+ "elements": [
+  {
+   "type": "text",
+   "x": 48,
+   "y": 62,
+   "w": 984,
+   "align": "left",
+   "t": "deepseek-color · Agent 设计技能",
+   "size": 30,
+   "b": 1,
+   "c": "ink"
+  },
+  {
+   "type": "text",
+   "x": 48,
+   "y": 100,
+   "w": 984,
+   "align": "left",
+   "t": "给 AI Agent 装上审美：5 套克制色卡 × 12 个零依赖 HTML 骨架 × 8 换肤组合",
+   "size": 16,
+   "c": "dim"
+  },
+  {
+   "type": "rule",
+   "x": 48,
+   "y": 126,
+   "w": 984
+  },
+  {
+   "type": "box",
+   "x": 48.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 204,
+   "color": "bl",
+   "fill": "blf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "01",
+     "c": "bl",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "5 色卡",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "莫兰迪式克制配色",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 300.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 204,
+   "color": "gn",
+   "fill": "gnf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "02",
+     "c": "gn",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "12 版式骨架",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "零依赖 HTML",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 552.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 204,
+   "color": "yl",
+   "fill": "ylf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "03",
+     "c": "yl",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "8 换肤组合",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "色卡 × 骨架实时试穿",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 804.0,
+   "y": 156,
+   "w": 228.0,
+   "h": 204,
+   "color": "pu",
+   "fill": "puf",
+   "pad": [
+    16,
+    16,
+    16
+   ],
+   "align": "center",
+   "lines": [
+    {
+     "t": "04",
+     "c": "pu",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "t": "Agent 安装",
+     "c": "ink",
+     "b": 1,
+     "size": 20
+    },
+    "",
+    {
+     "t": "Kimi Work · Codex",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    },
+    {
+     "t": "Claude Code · WorkBuddy",
+     "c": "fg",
+     "size": 15,
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     276.0,
+     258.0
+    ],
+    [
+     286.0,
+     258.0
+    ],
+    [
+     300.0,
+     258.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.3,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     528.0,
+     258.0
+    ],
+    [
+     538.0,
+     258.0
+    ],
+    [
+     552.0,
+     258.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.47,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "path",
+   "points": [
+    [
+     780.0,
+     258.0
+    ],
+    [
+     790.0,
+     258.0
+    ],
+    [
+     804.0,
+     258.0
+    ]
+   ],
+   "color": "gy",
+   "width": 2.2,
+   "r": 10,
+   "arrow": true,
+   "flow": {
+    "period": 1.6400000000000001,
+    "offsets": [
+     0,
+     0.55
+    ],
+    "color": "pk",
+    "tail": true
+   }
+  },
+  {
+   "type": "box",
+   "x": 48,
+   "y": 388,
+   "w": 984,
+   "h": 124,
+   "color": "gy",
+   "fill": "gyf",
+   "pad": [
+    14,
+    18,
+    18
+   ],
+   "align": "left",
+   "lines": [
+    {
+     "t": "实测 · 纪律（静态事实，非动效生成）",
+     "c": "dim",
+     "b": 1,
+     "size": 15
+    },
+    {
+     "runs": [
+      {
+       "t": "运行时依赖",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  0",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "配色纪律",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  base 70–85% / muted 10–25% / accent <5%",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    },
+    {
+     "runs": [
+      {
+       "t": "在线化",
+       "c": "fg",
+       "b": 1,
+       "size": 16
+      },
+      {
+       "t": "  25 个自包含 HTML 全部可直接打开",
+       "c": "dim",
+       "size": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "log",
+   "x": 48,
+   "y": 534,
+   "w": 984,
+   "rows": 4,
+   "padTop": 16,
+   "padBottom": 26,
+   "padLeft": 18,
+   "title": "run log",
+   "titleX": 30,
+   "titleW": 150,
+   "cols": [
+    {
+     "key": "time",
+     "x": 0
+    },
+    {
+     "key": "who",
+     "x": 110
+    },
+    {
+     "key": "m",
+     "x": 240
+    },
+    {
+     "key": "g",
+     "x": 700
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "x": 48,
+   "y": 706,
+   "w": 984,
+   "h": 54,
+   "color": "gy",
+   "fill": "wh",
+   "pad": [
+    0,
+    18,
+    18
+   ],
+   "align": "left",
+   "lines": [
+    {
+     "items": [
+      {
+       "w": 130,
+       "align": "left",
+       "runs": [
+        {
+         "t": "试穿",
+         "c": "dim",
+         "size": 15
+        }
+       ]
+      },
+      {
+       "w": 210,
+       "align": "left",
+       "runs": [
+        {
+         "v": "u0",
+         "c": "pu",
+         "b": 1,
+         "size": 15
+        }
+       ]
+      },
+      {
+       "w": 130,
+       "align": "left",
+       "runs": [
+        {
+         "t": "骨架",
+         "c": "dim",
+         "size": 15
+        }
+       ]
+      },
+      {
+       "w": 210,
+       "align": "left",
+       "runs": [
+        {
+         "v": "u1",
+         "c": "bl",
+         "b": 1,
+         "size": 15
+        }
+       ]
+      },
+      {
+       "grow": 1
+      },
+      {
+       "w": 250,
+       "align": "right",
+       "runs": [
+        {
+         "t": "packets ",
+         "c": "dim",
+         "size": 15
+        },
+        {
+         "v": "packets",
+         "c": "pk",
+         "b": 1,
+         "size": 15
+        },
+        {
+         "t": " (示意)",
+         "c": "dim",
+         "size": 13
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

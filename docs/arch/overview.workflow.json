@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Repo Showcase OS · 八步流水线",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "事实 → 上线 → 沉淀",
+        "focus": ["inventory", "facts", "readme", "showcase", "push", "pages", "about", "memory"],
+        "note": "每个仓库走同一条流水线，事实先于文案，最后落到 Pages 与记忆。"
+      }
+    ]
+  },
+  "lanes": [
+    { "id": "content", "label": "内容层 · Content" },
+    { "id": "delivery", "label": "交付层 · Delivery" },
+    { "id": "accretion", "label": "沉淀层 · Accretion" }
+  ],
+  "nodes": [
+    { "id": "inventory", "lane": "content", "col": 0, "type": "backend", "label": "事实盘点", "sublabel": "读代码，不靠猜" },
+    { "id": "facts", "lane": "content", "col": 1, "type": "database", "label": "事实包", "sublabel": "单一事实源" },
+    { "id": "readme", "lane": "content", "col": 2, "type": "backend", "label": "四问 README", "sublabel": "四问骨架" },
+    { "id": "showcase", "lane": "content", "col": 3, "type": "frontend", "label": "展示页", "sublabel": "ZH/EN × 日夜" },
+    { "id": "push", "lane": "delivery", "col": 3, "type": "backend", "label": "独立目录推送", "sublabel": "浅克隆 /tmp" },
+    { "id": "pages", "lane": "delivery", "col": 4, "type": "cloud", "label": "GitHub Pages", "sublabel": "main /docs" },
+    { "id": "about", "lane": "delivery", "col": 5, "type": "frontend", "label": "About 设置", "sublabel": "一句话 + 链接" },
+    { "id": "memory", "lane": "accretion", "col": 5, "type": "database", "label": "记忆沉淀", "sublabel": "坑表进 SKILL" }
+  ],
+  "edges": [
+    { "from": "inventory", "to": "facts" },
+    { "from": "facts", "to": "readme" },
+    { "from": "readme", "to": "showcase" },
+    { "from": "showcase", "to": "push" },
+    { "from": "push", "to": "pages" },
+    { "from": "pages", "to": "about" },
+    { "from": "about", "to": "memory" }
+  ],
+  "phases": [
+    { "id": "author", "label": "事实 → 文案", "fromCol": 0, "toCol": 2 },
+    { "id": "ship", "label": "展示 → 上线 → 沉淀", "fromCol": 3, "toCol": 5, "variant": "emphasis" }
+  ]
+}

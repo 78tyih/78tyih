@@ -1,0 +1,77 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "deepseek-color · Agent 设计技能",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "palettes",
+          "skeletons",
+          "combos",
+          "install"
+        ],
+        "note": "deepseek-color · Agent 设计技能 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "pipeline",
+      "label": "色彩管线"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "palettes",
+      "lane": "pipeline",
+      "col": 0,
+      "type": "database",
+      "label": "5 色卡",
+      "sublabel": "克制配色"
+    },
+    {
+      "id": "skeletons",
+      "lane": "pipeline",
+      "col": 1,
+      "type": "backend",
+      "label": "12 版式骨架",
+      "sublabel": "零依赖"
+    },
+    {
+      "id": "combos",
+      "lane": "pipeline",
+      "col": 2,
+      "type": "frontend",
+      "label": "8 换肤组合",
+      "sublabel": "实时试穿"
+    },
+    {
+      "id": "install",
+      "lane": "pipeline",
+      "col": 3,
+      "type": "cloud",
+      "label": "Agent 安装",
+      "sublabel": "四大 Agent"
+    }
+  ],
+  "edges": [
+    {
+      "from": "palettes",
+      "to": "skeletons"
+    },
+    {
+      "from": "skeletons",
+      "to": "combos"
+    },
+    {
+      "from": "combos",
+      "to": "install"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "mojo-plate-design · 雕版图谱",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "reverse",
+          "rules",
+          "blueprints",
+          "motion",
+          "replica"
+        ],
+        "note": "mojo-plate-design · 雕版图谱 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "distill",
+      "label": "逆向 Distill"
+    },
+    {
+      "id": "output",
+      "label": "产出 Output"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "reverse",
+      "lane": "distill",
+      "col": 0,
+      "type": "backend",
+      "label": "mojo 逆向",
+      "sublabel": "学模式不搬"
+    },
+    {
+      "id": "rules",
+      "lane": "distill",
+      "col": 1,
+      "type": "database",
+      "label": "8 非协商规则",
+      "sublabel": "字体三件套"
+    },
+    {
+      "id": "blueprints",
+      "lane": "output",
+      "col": 1,
+      "type": "backend",
+      "label": "4 段版式蓝图",
+      "sublabel": "雕版分区"
+    },
+    {
+      "id": "motion",
+      "lane": "output",
+      "col": 2,
+      "type": "frontend",
+      "label": "招牌动效",
+      "sublabel": "steps() 印刷感"
+    },
+    {
+      "id": "replica",
+      "lane": "output",
+      "col": 3,
+      "type": "cloud",
+      "label": "replica",
+      "sublabel": "一比一复刻"
+    }
+  ],
+  "edges": [
+    {
+      "from": "reverse",
+      "to": "rules"
+    },
+    {
+      "from": "rules",
+      "to": "blueprints"
+    },
+    {
+      "from": "blueprints",
+      "to": "motion"
+    },
+    {
+      "from": "motion",
+      "to": "replica"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "trae-skills · 四个管住 Agent 的技能",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "trigger",
+          "tree",
+          "route",
+          "land"
+        ],
+        "note": "trae-skills · 四个管住 Agent 的技能 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "pipeline",
+      "label": "技能路由"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "trigger",
+      "lane": "pipeline",
+      "col": 0,
+      "type": "external",
+      "label": "触发",
+      "sublabel": "按情境进技能"
+    },
+    {
+      "id": "tree",
+      "lane": "pipeline",
+      "col": 1,
+      "type": "backend",
+      "label": "决策树 5 轮",
+      "sublabel": "追问到理解"
+    },
+    {
+      "id": "route",
+      "lane": "pipeline",
+      "col": 2,
+      "type": "backend",
+      "label": "三分支路由",
+      "sublabel": "做 / 查 / 画"
+    },
+    {
+      "id": "land",
+      "lane": "pipeline",
+      "col": 3,
+      "type": "frontend",
+      "label": "落地",
+      "sublabel": "核验/拆解/出图"
+    }
+  ],
+  "edges": [
+    {
+      "from": "trigger",
+      "to": "tree"
+    },
+    {
+      "from": "tree",
+      "to": "route"
+    },
+    {
+      "from": "route",
+      "to": "land"
+    }
+  ]
+}

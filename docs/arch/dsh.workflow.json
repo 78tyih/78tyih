@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "dsh-deepseek-color · DSH 皮肤包",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "tokens",
+          "vars",
+          "center"
+        ],
+        "note": "dsh-deepseek-color · DSH 皮肤包 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "pipeline",
+      "label": "皮肤管线"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "tokens",
+      "lane": "pipeline",
+      "col": 0,
+      "type": "database",
+      "label": "纯 token 皮肤",
+      "sublabel": "只 CSS 变量"
+    },
+    {
+      "id": "vars",
+      "lane": "pipeline",
+      "col": 1,
+      "type": "backend",
+      "label": "CSS 变量映射",
+      "sublabel": "不碰 DOM"
+    },
+    {
+      "id": "center",
+      "lane": "pipeline",
+      "col": 2,
+      "type": "cloud",
+      "label": "DSH 皮肤中心",
+      "sublabel": "更新不失效"
+    }
+  ],
+  "edges": [
+    {
+      "from": "tokens",
+      "to": "vars"
+    },
+    {
+      "from": "vars",
+      "to": "center"
+    }
+  ]
+}

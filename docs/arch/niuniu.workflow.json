@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "牛牛AI · niuniuai.app",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "mt5",
+          "sync",
+          "ai",
+          "features",
+          "pay",
+          "deploy"
+        ],
+        "note": "牛牛AI · niuniuai.app 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "product",
+      "label": "产品 Product"
+    },
+    {
+      "id": "delivery",
+      "label": "交付 Delivery"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "mt5",
+      "lane": "product",
+      "col": 0,
+      "type": "external",
+      "label": "MT5 终端",
+      "sublabel": "行情/持仓"
+    },
+    {
+      "id": "sync",
+      "lane": "product",
+      "col": 1,
+      "type": "backend",
+      "label": "数据同步",
+      "sublabel": "账户+历史"
+    },
+    {
+      "id": "ai",
+      "lane": "product",
+      "col": 2,
+      "type": "backend",
+      "label": "AI 引擎",
+      "sublabel": "分析/诊断/复盘"
+    },
+    {
+      "id": "features",
+      "lane": "product",
+      "col": 3,
+      "type": "frontend",
+      "label": "四大功能",
+      "sublabel": "助手·诊断·复盘"
+    },
+    {
+      "id": "pay",
+      "lane": "delivery",
+      "col": 3,
+      "type": "backend",
+      "label": "订阅支付",
+      "sublabel": "Stripe+双通道"
+    },
+    {
+      "id": "deploy",
+      "lane": "delivery",
+      "col": 4,
+      "type": "cloud",
+      "label": "Zeabur 部署",
+      "sublabel": "推送即部署"
+    }
+  ],
+  "edges": [
+    {
+      "from": "mt5",
+      "to": "sync"
+    },
+    {
+      "from": "sync",
+      "to": "ai"
+    },
+    {
+      "from": "ai",
+      "to": "features"
+    },
+    {
+      "from": "features",
+      "to": "pay"
+    },
+    {
+      "from": "pay",
+      "to": "deploy"
+    }
+  ]
+}

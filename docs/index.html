@@ -1,173 +1,48 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>架构面板 · Sera Projects Atlas</title>
-<meta name="description" content="把每个项目的架构流程画成一块一直在跑的面板：终端标签、光点沿连线流动、日志滚动、计数跳动。">
+<title>架构图谱 · Sera Projects</title>
+<meta name="description" content="每个项目一张架构图：Archify 语义化 JSON 自动布局，可 hover 探索、日夜主题。">
 <style>
-:root{
-  --bg:#fbfbfa; --panel:#ffffff; --panel2:#f4f4f2; --ink:#191c20; --ink2:#6d747d; --line:#e4e4e0;
-  --bl:#5f93e0; --blf:#e4eefc; --gn:#6fb34f; --gnf:#e7f4de; --yl:#c79a1f; --ylf:#fff5d6;
-  --pu:#8f6ec4; --puf:#f2eafa; --tl:#3f9c92; --tlf:#e0f4f1; --or:#c97a2b; --orf:#fdeedc; --pk:#e0555e;
-}
-html[data-theme="dark"]{
-  --bg:#0f1216; --panel:#161a20; --panel2:#1c2129; --ink:#e8eaed; --ink2:#98a1ab; --line:#262c35;
-}
+:root{--bg:#fbfbfa;--panel:#fff;--ink:#191c20;--ink2:#6d747d;--line:#e4e4e0;--accent:#4f8cff}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px 80px}
-a{color:inherit}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:40px 0 26px;border-bottom:1px solid var(--line)}
-h1{font-size:30px;font-weight:800;letter-spacing:.01em;margin-bottom:8px}
-.sub{color:var(--ink2);font-size:15px;max-width:720px}
-.ctl{display:flex;gap:8px;flex-shrink:0}
-.ctl button{background:var(--panel);border:1px solid var(--line);color:var(--ink2);padding:6px 13px;border-radius:20px;cursor:pointer;font-size:12.5px}
-.ctl button:hover{color:var(--ink)}
-.ctl button.on{color:var(--ink);border-color:var(--pk);font-weight:700}
-/* tabs */
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 18px}
-.tab{background:var(--panel);border:1px solid var(--line);color:var(--ink2);padding:7px 15px;border-radius:20px;cursor:pointer;font-size:13.5px;display:flex;align-items:center;gap:7px}
-.tab .dot{width:7px;height:7px;border-radius:50%;background:var(--line)}
-.tab:hover{color:var(--ink)}
-.tab.on{color:var(--ink);border-color:var(--ink);font-weight:700;background:var(--panel2)}
-.tab.on .dot{background:var(--pk)}
-/* stage */
-.stage{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start}
-.frame{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;aspect-ratio:1/1}
-.frame iframe{position:absolute;top:0;left:0;width:1080px;height:1080px;border:0;transform-origin:0 0}
-.side{display:flex;flex-direction:column;gap:14px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
-.card h3{font-size:16px;font-weight:800;margin-bottom:6px}
-.card p{font-size:13.5px;color:var(--ink2);margin-bottom:12px}
-.kv{display:block;font-size:13px;padding:8px 0;border-top:1px solid var(--line)}
-.kv span{display:block;color:var(--ink2);font-size:12px;margin-bottom:2px}
-.kv b{display:block;font-weight:700;line-height:1.45;overflow-wrap:anywhere}
-.link{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:var(--bg);text-decoration:none;padding:9px 15px;border-radius:9px;font-size:13.5px;font-weight:600}
-.link.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{font-size:12px;color:var(--ink2);background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:4px 10px}
-.note{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink2);font-size:12.5px;display:grid;gap:6px}
-.en{display:none}
-html[data-lang="en"] .zh{display:none}
-html[data-lang="en"] .en{display:inline}
-html[data-lang="en"] .en.blk{display:block}
-@media(max-width:900px){.stage{grid-template-columns:1fr}}
+.wrap{max-width:1120px;margin:0 auto;padding:48px 28px 80px}
+h1{font-size:30px;font-weight:800;margin-bottom:8px}
+.sub{color:var(--ink2);max-width:720px;margin-bottom:36px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s, box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.08)}
+.card img{width:100%;display:block;border-bottom:1px solid var(--line)}
+.card .meta{padding:14px 18px}
+.card .meta b{font-size:15px;display:block;margin-bottom:2px}
+.card .meta span{color:var(--ink2);font-size:13px}
+.note{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink2);font-size:12.5px}
+.note code{background:#f0f0ee;padding:2px 6px;border-radius:5px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top">
-    <div>
-      <h1 class="zh">架构面板 · 每个项目一块在跑的面板</h1>
-      <h1 class="en">Architecture Panels · Every Project as a Running Panel</h1>
-      <p class="sub zh">版式不动、光点沿连线流动、日志滚动、计数跳动、阈值翻状态——一张图看懂一个项目的架构流程。引擎：live-panel（config → 逐帧确定性的 mp4 / 网页）。</p>
-      <p class="sub en">Fixed layout, packets moving along the wires, a scrolling log, counters ticking. One panel = one project's architecture in motion. Engine: live-panel (config → deterministic mp4 / live page).</p>
-    </div>
-    <div class="ctl">
-      <button id="zh" class="on" onclick="setLang('zh')">中</button>
-      <button id="en" onclick="setLang('en')">EN</button>
-      <button onclick="setTheme()">◐</button>
-    </div>
-  </div>
+  <h1>架构图谱 · Sera Projects</h1>
+  <p class="sub">每个项目一张架构流程（workflow），由 Archify 从语义化 JSON 生成：节点/泳道自动布局、可 hover 探索、日夜主题、<code>validate --quality showcase</code> 9 项验收。事实源 = 各仓库 <code>showcase/project.json</code>。</p>
 
-  <div class="tabs" id="tabs"></div>
-
-  <div class="stage">
-    <div class="frame" id="frameWrap"><iframe id="frame" title="panel"></iframe></div>
-    <div class="side">
-      <div class="card">
-        <h3 id="ptitle">—</h3>
-        <p id="pdesc">—</p>
-        <div id="pfacts"></div>
-      </div>
-      <div class="card">
-        <a class="link" id="popen" href="#" target="_blank" rel="noopener">
-          <span class="zh">打开整页面板</span><span class="en">Open full panel</span> ↗
-        </a>
-        <div style="height:10px"></div>
-        <a class="link ghost" href="https://github.com/78tyih" target="_blank" rel="noopener">
-          <span class="zh">全部仓库</span><span class="en">All repos</span> ↗
-        </a>
-        <div class="legend">
-          <span class="chip zh">粉色光点 = 数据流</span><span class="chip en">pink dots = data flow</span>
-          <span class="chip zh">✓ 绿 = 完成</span><span class="chip en">✓ green = done</span>
-          <span class="chip zh">计数为示意</span><span class="chip en">counters illustrative</span>
-        </div>
-      </div>
-    </div>
+  <div class="grid">
+    <a class="card" href="arch/overview.html"><img src="assets/arch/overview.png" alt="全景"><div class="meta"><b>全景 · Repo Showcase OS</b><span>七仓共用的八步流水线</span></div></a>
+    <a class="card" href="arch/niuniu.html"><img src="assets/arch/niuniu.png" alt="牛牛AI"><div class="meta"><b>牛牛AI</b><span>MT5 → AI → 订阅 → Zeabur</span></div></a>
+    <a class="card" href="arch/sarah.html"><img src="assets/arch/sarah.png" alt="sarah-motion"><div class="meta"><b>sarah-motion</b><span>纯时间函数动效组件库</span></div></a>
+    <a class="card" href="arch/ssf.html"><img src="assets/arch/ssf.png" alt="sera-subtitle-factory"><div class="meta"><b>sera-subtitle-factory</b><span>字幕 = Recipe (JSON)</span></div></a>
+    <a class="card" href="arch/dsc.html"><img src="assets/arch/dsc.png" alt="deepseek-color"><div class="meta"><b>deepseek-color</b><span>Agent 设计技能</span></div></a>
+    <a class="card" href="arch/dsh.html"><img src="assets/arch/dsh.png" alt="dsh-deepseek-color"><div class="meta"><b>dsh-deepseek-color</b><span>DSH 纯 token 皮肤包</span></div></a>
+    <a class="card" href="arch/mojo.html"><img src="assets/arch/mojo.png" alt="mojo-plate-design"><div class="meta"><b>mojo-plate-design</b><span>雕版图谱设计技能</span></div></a>
+    <a class="card" href="arch/trae.html"><img src="assets/arch/trae.png" alt="trae-skills"><div class="meta"><b>trae-skills</b><span>四个管住 Agent 的技能</span></div></a>
   </div>
 
   <div class="note">
-    <div class="zh">动效语法与样式学自 @thedelost 的 Codex agent 分工动图（经 @slashui 转发），由 <a href="https://github.com/ythx-101/live-panel-skill" target="_blank" rel="noopener">live-panel-skill</a>（MIT）渲染；面板里的静态事实来自各仓库 <code>showcase/project.json</code>，会动的计数只表示动效自身的状态，不代表真实吞吐。</div>
-    <div class="en">Motion grammar and look follow @thedelost's Codex agent-tree clip (via @slashui), rendered by <a href="https://github.com/ythx-101/live-panel-skill" target="_blank" rel="noopener">live-panel-skill</a> (MIT). Static facts come from each repo's <code>showcase/project.json</code>; animated counters are the animation's own state, not real throughput.</div>
+    引擎：<a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener">Archify</a>（MIT）· 候选 JSON 与生成器进库 <code>docs/arch/</code> · 静态图 <code>docs/assets/arch/</code> · 点击任一卡片进入可交互的日夜主题页面。
   </div>
 </div>
-
-<script>
-const PANELS=[
- {slug:"overview",name:"全景 · Repo Showcase OS",color:"#e0555e",
-  zh:"七个展示包共用的八步流水线：事实盘点 → 事实包 → 四问 README → 展示页 → 推送 → Pages → About → 记忆。",
-  en:"The eight-step pipeline shared by all showcase packs, from fact inventory to memory.",
-  facts:[["覆盖","7 个展示包 + 主页索引"],["证据分级","Observed / Inferred / Unknown"],["关键约束","README 只能内嵌 GIF（<video> 被剥离）"]]},
- {slug:"niuniu",name:"牛牛AI",color:"#5f93e0",
-  zh:"MT5 → 数据同步 → AI 引擎 → 四大功能 → 订阅支付 → Zeabur 部署；同时是一套可抄走的订阅制全栈参考。",
-  en:"MT5 → sync → AI engine → four features → subscription → Zeabur deploy.",
-  facts:[["前端","React + Vite + Tailwind"],["后端","api/ (Vercel) + cloud-functions/ (EdgeOne)"],["价格","¥19.9 试用 3 天起"]]},
- {slug:"sarah",name:"sarah-motion",color:"#8f6ec4",
-  zh:"每个组件都是时间的纯函数：可跳转、可逐帧、循环闭合零像素差，补齐金融 UI 组件族。",
-  en:"Every component a pure function of time: seekable, frame-exact, zero-pixel loop seam.",
-  facts:[["不变量","循环闭合 0 px 差"],["节拍","120 BPM 网格"],["补齐","报价 / 杠杆 / 回放"]]},
- {slug:"ssf",name:"sera-subtitle-factory",color:"#3f9c92",
-  zh:"像设计 UI 组件一样设计字幕：永远单行、逐词跟随语音、active 词不推挤邻词，Recipe 即 JSON。",
-  en:"Design subtitles like UI components; a Recipe is JSON you can copy.",
-  facts:[["技术栈","TypeScript · Next.js"],["铁律","单行 · 逐词 · 不推挤"],["资产","Recipe = JSON"]]},
- {slug:"dsc",name:"deepseek-color",color:"#6fb34f",
-  zh:"给 AI Agent 装审美的设计技能：5 色卡 × 12 零依赖骨架 × 8 换肤组合。",
-  en:"A design skill for agents: 5 palettes × 12 zero-dependency skeletons.",
-  facts:[["运行时依赖","0"],["配色纪律","base 70–85% / accent <5%"],["在线化","25 个自包含 HTML"]]},
- {slug:"dsh",name:"dsh-deepseek-color",color:"#3f9c92",
-  zh:"五套纯 token 皮肤带进 DeepSeek Harness：零补丁、零脚本、零背景媒体。",
-  en:"Five pure-token skins for DeepSeek Harness: no patches, no scripts, no media.",
-  facts:[["安全等级","最安全的一类皮肤"],["为什么","改结构会随官方更新失效"],["来源","复用 deepseek-color 色卡"]]},
- {slug:"mojo",name:"mojo-plate-design",color:"#c79a1f",
-  zh:"从 mojo.trade 逆向的「雕版图谱」设计技能：近黑暖纸 + 骨白墨 + 唯一酸绿，steps() 印刷动效。",
-  en:"An engraved-atlas design skill: warm paper, bone ink, one acid accent, steps() print motion.",
-  facts:[["色板","#0b0b09 / #e9e5d4 / #cdf546"],["字体三件套","Instrument Serif · Inter 300 · JetBrains Mono"],["合规","学习用途逆向，商用需替换"]]},
- {slug:"trae",name:"trae-skills",color:"#c97a2b",
-  zh:"四个管住 Agent 的技能：想法澄清决策树、反诈骗查链核验、博主知识拆解、可视化路由。",
-  en:"Four agent-guarding skills: idea-clarifying tree, on-chain verifier, creator intel, visual routing.",
-  facts:[["决策树","5 轮提问 → 3 分支"],["链上核验","TxHash · From · To · Block · Time"],["知识评分","6 维权重合计 100"]]}
-];
-
-let cur=0;
-function render(){
-  const t=document.getElementById('tabs');
-  t.innerHTML=PANELS.map((p,i)=>
-    `<div class="tab${i===cur?' on':''}" onclick="pick(${i})"><span class="dot" style="background:${i===cur?'var(--pk)':'${p.color}'}"></span>${p.name}</div>`).join('');
-  const p=PANELS[cur];
-  document.getElementById('frame').src='panels/'+p.slug+'.html';
-  document.getElementById('ptitle').textContent=p.name;
-  document.getElementById('pdesc').innerHTML=`<span class="zh">${p.zh}</span><span class="en blk">${p.en}</span>`;
-  document.getElementById('pfacts').innerHTML=p.facts.map(([k,v])=>`<div class="kv"><span>${k}</span><b>${v}</b></div>`).join('');
-  document.getElementById('popen').href='panels/'+p.slug+'.html';
-  fit();
-}
-function pick(i){cur=i;render()}
-function fit(){
-  const w=document.getElementById('frameWrap').clientWidth;
-  document.getElementById('frame').style.transform='scale('+(w/1080)+')';
-}
-addEventListener('resize',fit);
-function setLang(l){document.documentElement.dataset.lang=l;
-  document.getElementById('zh').classList.toggle('on',l==='zh');
-  document.getElementById('en').classList.toggle('on',l==='en');}
-function setTheme(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'}
-const q=new URLSearchParams(location.search);
-if(q.get('lang')==='en')setLang('en');
-if(q.get('theme')==='dark')document.documentElement.dataset.theme='dark';
-if(q.get('p')){const i=PANELS.findIndex(x=>x.slug===q.get('p'));if(i>=0)cur=i}
-render();
-</script>
 </body>
 </html>

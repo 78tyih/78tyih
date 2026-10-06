@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "sera-subtitle-factory · 字幕工厂",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "audio",
+          "align",
+          "recipe",
+          "renderer",
+          "studio"
+        ],
+        "note": "sera-subtitle-factory · 字幕工厂 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "input",
+      "label": "输入 Input"
+    },
+    {
+      "id": "render",
+      "label": "渲染 Render"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "audio",
+      "lane": "input",
+      "col": 0,
+      "type": "external",
+      "label": "音频/文本",
+      "sublabel": "素材输入"
+    },
+    {
+      "id": "align",
+      "lane": "input",
+      "col": 1,
+      "type": "backend",
+      "label": "词级对齐",
+      "sublabel": "每词时间码"
+    },
+    {
+      "id": "recipe",
+      "lane": "render",
+      "col": 1,
+      "type": "database",
+      "label": "Recipe (JSON)",
+      "sublabel": "样式即数据"
+    },
+    {
+      "id": "renderer",
+      "lane": "render",
+      "col": 2,
+      "type": "frontend",
+      "label": "渲染",
+      "sublabel": "单行·逐词"
+    },
+    {
+      "id": "studio",
+      "lane": "render",
+      "col": 3,
+      "type": "cloud",
+      "label": "在线工作台",
+      "sublabel": "studio/"
+    }
+  ],
+  "edges": [
+    {
+      "from": "audio",
+      "to": "align"
+    },
+    {
+      "from": "align",
+      "to": "recipe"
+    },
+    {
+      "from": "recipe",
+      "to": "renderer"
+    },
+    {
+      "from": "renderer",
+      "to": "studio"
+    }
+  ]
+}

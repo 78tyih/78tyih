@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "sarah-motion · 动效组件库",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "主路径",
+        "focus": [
+          "t",
+          "spring",
+          "components",
+          "bpm",
+          "blur",
+          "atlas"
+        ],
+        "note": "sarah-motion · 动效组件库 的架构流程（事实源：showcase/project.json）。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "engine",
+      "label": "引擎 Engine"
+    },
+    {
+      "id": "quality",
+      "label": "质检 Quality"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "t",
+      "lane": "engine",
+      "col": 0,
+      "type": "external",
+      "label": "时间 t",
+      "sublabel": "seek(t) 可跳转"
+    },
+    {
+      "id": "spring",
+      "lane": "engine",
+      "col": 1,
+      "type": "backend",
+      "label": "弹簧引擎",
+      "sublabel": "纯时间函数"
+    },
+    {
+      "id": "components",
+      "lane": "engine",
+      "col": 2,
+      "type": "backend",
+      "label": "组件族",
+      "sublabel": "报价/杠杆/回放"
+    },
+    {
+      "id": "bpm",
+      "lane": "quality",
+      "col": 2,
+      "type": "backend",
+      "label": "节拍网格",
+      "sublabel": "120 BPM"
+    },
+    {
+      "id": "blur",
+      "lane": "quality",
+      "col": 3,
+      "type": "frontend",
+      "label": "60fps 运动模糊",
+      "sublabel": "一形十态"
+    },
+    {
+      "id": "atlas",
+      "lane": "quality",
+      "col": 4,
+      "type": "database",
+      "label": "规格图谱",
+      "sublabel": "数据×6 金融×6"
+    }
+  ],
+  "edges": [
+    {
+      "from": "t",
+      "to": "spring"
+    },
+    {
+      "from": "spring",
+      "to": "components"
+    },
+    {
+      "from": "components",
+      "to": "bpm"
+    },
+    {
+      "from": "bpm",
+      "to": "blur"
+    },
+    {
+      "from": "blur",
+      "to": "atlas"
+    }
+  ]
+}
